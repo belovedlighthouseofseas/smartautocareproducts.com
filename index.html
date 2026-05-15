@@ -9,47 +9,386 @@
 <meta property="og:description" content="Premium detailing supplies, ceramic coatings, polishes, and interior care products curated by mobile auto-body professionals.">
 <meta property="og:url" content="https://smartautocareproducts.com/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://smartautocareproducts.com/assets/hero.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Smart Auto Care Products — Detailing Supplies, Polish, & Protectants">
 <meta name="twitter:description" content="Premium detailing supplies, ceramic coatings, polishes, and interior care products curated by mobile auto-body professionals.">
 <link rel="canonical" href="https://smartautocareproducts.com/">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root { --accent: #d97706; }
+:root {
+  --accent: #d97706;
+  --accent-dark: #b45309;
+  --ink: #1a1a1a;
+  --ink-soft: #3a3a3a;
+  --muted: #6b6b6b;
+  --line: #e7e5e4;
+  --bg: #fafaf9;
+  --card: #ffffff;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
-.hero { background: linear-gradient(135deg, var(--accent) 0%, #1a1a1a 100%); color: #fff; padding: 6rem 1.5rem 5rem; text-align: center; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; }
-.hero p { font-size: 1.25rem; max-width: 640px; margin: 0 auto 2rem; opacity: 0.92; }
-.cta { display: inline-block; background: #fff; color: var(--accent); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.15s; }
-.cta:hover { transform: translateY(-2px); }
-.container { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
-.services { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.service { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-.service h3 { color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem; }
-h2 { font-size: 2rem; text-align: center; margin-bottom: 2rem; }
-footer { background: #1a1a1a; color: #aaa; text-align: center; padding: 2rem 1.5rem; font-size: 0.9rem; }
-footer a { color: var(--accent); text-decoration: none; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid var(--line); }
+.nav { max-width: 1180px; margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.brand img { height: 38px; width: auto; }
+.brand-text { font-weight: 800; letter-spacing: -0.01em; font-size: 1.05rem; color: var(--ink); }
+.brand-text span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.75rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--ink-soft); font-weight: 500; font-size: 0.95rem; transition: color 0.15s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { background: var(--ink); color: #fff; padding: 0.6rem 1.1rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.15s; }
+.nav-cta:hover { background: var(--accent); }
+@media (max-width: 720px) { .nav-links { display: none; } }
+
+/* Hero */
+.hero { position: relative; min-height: 78vh; display: flex; align-items: center; color: #fff; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: url('assets/hero.png'); background-size: cover; background-position: center; z-index: 0; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 100%); }
+.hero-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 5rem 1.5rem; width: 100%; }
+.hero-eyebrow { display: inline-block; background: rgba(217,119,6,0.18); color: #fbbf24; padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.25rem; border: 1px solid rgba(251,191,36,0.3); }
+.hero h1 { font-size: clamp(2.25rem, 5.2vw, 3.75rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.25rem; max-width: 720px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 600px; opacity: 0.92; margin-bottom: 2.25rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 1.6rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.15s, background 0.15s; font-size: 1rem; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+.btn-ghost:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+/* Sections */
+section { padding: 5rem 1.5rem; }
+.wrap { max-width: 1180px; margin: 0 auto; }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+.section-eyebrow { color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.section-head h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.75rem; }
+.section-head p { color: var(--muted); font-size: 1.05rem; }
+
+/* Categories */
+.categories { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.cat { background: var(--card); padding: 2rem 1.75rem; border-radius: 14px; border: 1px solid var(--line); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.cat:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.07); border-color: var(--accent); }
+.cat-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(217,119,6,0.1); color: var(--accent); display: grid; place-items: center; margin-bottom: 1.1rem; }
+.cat-icon svg { width: 22px; height: 22px; }
+.cat h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+.cat p { color: var(--muted); font-size: 0.95rem; }
+
+/* Why */
+.why { background: #ffffff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.why-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.why-item { text-align: center; padding: 1rem; }
+.why-num { font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+.why-item h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.why-item p { color: var(--muted); font-size: 0.95rem; }
+
+/* Featured */
+.featured { background: var(--bg); }
+.products { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.product { background: var(--card); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.product:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.07); }
+.product-img { aspect-ratio: 4/3; background: linear-gradient(135deg, #2a2a2a, #1a1a1a); display: grid; place-items: center; color: var(--accent); position: relative; overflow: hidden; }
+.product-img::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(217,119,6,0.18), transparent 60%); }
+.product-img svg { width: 64px; height: 64px; position: relative; opacity: 0.9; }
+.product-body { padding: 1.25rem 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.product-tag { font-size: 0.72rem; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.product h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+.product p { color: var(--muted); font-size: 0.9rem; flex: 1; margin-bottom: 1rem; }
+.product-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 0.85rem; border-top: 1px solid var(--line); }
+.price { font-weight: 700; font-size: 1.05rem; }
+.price small { font-weight: 500; color: var(--muted); font-size: 0.8rem; }
+.product-meta a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+/* CTA band */
+.cta-band { background: linear-gradient(135deg, var(--ink) 0%, #2a2a2a 100%); color: #fff; }
+.cta-inner { display: grid; gap: 2.5rem; grid-template-columns: 1.3fr 1fr; align-items: center; }
+@media (max-width: 800px) { .cta-inner { grid-template-columns: 1fr; } }
+.cta-band h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+.cta-band p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
+.signup-form { display: flex; flex-direction: column; gap: 0.75rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); }
+.signup-form label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); }
+.signup-form input { padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: #fff; font: inherit; font-size: 0.95rem; }
+.signup-form input::placeholder { color: rgba(255,255,255,0.4); }
+.signup-form input:focus { outline: none; border-color: var(--accent); background: rgba(0,0,0,0.5); }
+.signup-form button { padding: 0.9rem 1rem; border-radius: 8px; border: 0; background: var(--accent); color: #fff; font: inherit; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+.signup-form button:hover { background: var(--accent-dark); }
+.signup-note { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-align: center; margin-top: 0.25rem; }
+
+/* Footer */
+footer { background: #0f0f0f; color: #999; padding: 3rem 1.5rem 2rem; }
+.foot { max-width: 1180px; margin: 0 auto; display: grid; gap: 2rem; grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+@media (max-width: 800px) { .foot { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .foot { grid-template-columns: 1fr; } }
+.foot-brand img { height: 44px; width: auto; background: #fff; padding: 6px; border-radius: 8px; margin-bottom: 0.85rem; }
+.foot-brand p { font-size: 0.9rem; max-width: 280px; }
+.foot h5 { color: #fff; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
+.foot ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.foot a { color: #999; text-decoration: none; font-size: 0.9rem; transition: color 0.15s; }
+.foot a:hover { color: var(--accent); }
+.foot-bottom { max-width: 1180px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.82rem; }
 </style>
 </head>
 <body>
-<header class="hero">
-<h1>Premium Auto Care, Curated By Pros</h1>
-<p>Ceramic coatings, polishes, detailing supplies, and interior care products hand-picked by mobile auto-body professionals.</p>
-<a href="#services" class="cta">See What We Offer</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="#" class="brand" aria-label="Smart Auto Care Products home">
+      <img src="assets/logo.png" alt="Smart Auto Care Products logo">
+      <span class="brand-text">Smart Auto<span> Care</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#categories">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#guides">Guides</a></li>
+    </ul>
+    <a href="#signup" class="nav-cta">Get Pro Pricing</a>
+  </nav>
 </header>
-<main class="container" id="services">
-<h2>What Smart Auto Care Products Offers</h2>
-<div class="services">
-<div class="service"><h3>Ceramic Coatings</h3><p>Long-lasting hydrophobic protection that real detailers actually use on their own vehicles.</p></div>
-<div class="service"><h3>Polishes & Compounds</h3><p>Cutting and finishing polishes graded for paint correction and clear-coat refinement.</p></div>
-<div class="service"><h3>Interior Care</h3><p>Leather conditioners, fabric protectants, and surface cleaners that won't damage delicate trims.</p></div>
-<div class="service"><h3>Detailing Tools</h3><p>Microfiber, applicators, foam guns, and the small accessories that make a big difference.</p></div>
-<div class="service"><h3>Bulk & Pro Pricing</h3><p>Volume discounts for shops, mobile detailers, and serious enthusiasts. Net-terms available for verified businesses.</p></div>
-<div class="service"><h3>Honest Guides</h3><p>Plain-English application guides written by working detailers — not affiliate-driven listicles.</p></div>
-</div>
-</main>
+
+<section class="hero" aria-label="Premium auto care, curated by pros">
+  <div class="hero-bg" role="img" aria-label="Glossy black luxury car with hydrophobic water beads on the hood"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Curated by working detailers</span>
+    <h1>Premium auto care, <em>without the fluff.</em></h1>
+    <p class="hero-sub">Ceramic coatings, polishes, and interior care chosen by mobile auto-body professionals — the stuff we actually keep on our own trucks.</p>
+    <div class="hero-actions">
+      <a href="#categories" class="btn btn-primary">Browse Products</a>
+      <a href="#why" class="btn btn-ghost">Why Smart Auto Care</a>
+    </div>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">What we stock</div>
+      <h2>Everything you need for a showroom finish</h2>
+      <p>Six tightly-edited categories. Nothing on this site is here because of a sponsorship.</p>
+    </div>
+    <div class="categories">
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 8 6 13a6 6 0 0 1-12 0c0-5 6-13 6-13z"/></svg>
+        </div>
+        <h3>Ceramic Coatings</h3>
+        <p>Long-lasting hydrophobic protection that real detailers actually use on their own vehicles.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3>Polishes &amp; Compounds</h3>
+        <p>Cutting and finishing polishes graded for paint correction and clear-coat refinement.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+        </div>
+        <h3>Interior Care</h3>
+        <p>Leather conditioners, fabric protectants, and surface cleaners that won't damage delicate trims.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4z"/><path d="M4 14h16v6H4z"/><path d="M8 4v16"/></svg>
+        </div>
+        <h3>Detailing Tools</h3>
+        <p>Microfiber, applicators, foam guns, and the small accessories that make a big difference.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l3 4v8H3z"/><circle cx="8" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+        </div>
+        <h3>Bulk &amp; Pro Pricing</h3>
+        <p>Volume discounts for shops, mobile detailers, and serious enthusiasts. Net-terms available for verified businesses.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13l-4-3H7a3 3 0 0 1-3-3V4z"/><path d="M8 9h8M8 13h5"/></svg>
+        </div>
+        <h3>Honest Guides</h3>
+        <p>Plain-English application guides written by working detailers — not affiliate-driven listicles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Why Smart Auto Care</div>
+      <h2>Built around what actually works on a job</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">12+</div>
+        <h4>Years on the trucks</h4>
+        <p>Every product on the shelf has been used on customer vehicles, not just tested in a lab.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">100%</div>
+        <h4>Curated, not catalog-dumped</h4>
+        <p>If two products do the same job, we pick one. You don't need eight ceramic sprays.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">Net-30</div>
+        <h4>For verified shops</h4>
+        <p>Mobile detailers and auto body shops can apply for business accounts with trade pricing.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">$0</div>
+        <h4>Sponsored placements</h4>
+        <p>Brands don't pay us for shelf space. If it's listed here, a working detailer recommended it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="featured" class="featured">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Featured this month</div>
+      <h2>What's been moving off the shelves</h2>
+      <p>A small sample. The full catalog is coming soon — sign up below to get launch access.</p>
+    </div>
+    <div class="products">
+      <article class="product">
+        <div class="product-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 8 6 13a6 6 0 0 1-12 0c0-5 6-13 6-13z"/></svg></div>
+        <div class="product-body">
+          <div class="product-tag">Ceramic</div>
+          <h4>9H Hydrophobic Coating Kit</h4>
+          <p>Two-year ceramic with included prep panel wipe, applicator block, and microfiber suedes.</p>
+          <div class="product-meta">
+            <div class="price">$129 <small>/ kit</small></div>
+            <a href="#signup">Notify me &rarr;</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="product-body">
+          <div class="product-tag">Polish</div>
+          <h4>Stage-1 Cutting Compound</h4>
+          <p>Aggressive cut for swirl correction on hard clears. Finishes clean enough to skip stage-2 on soft paints.</p>
+          <div class="product-meta">
+            <div class="price">$42 <small>/ 16oz</small></div>
+            <a href="#signup">Notify me &rarr;</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+        <div class="product-body">
+          <div class="product-tag">Interior</div>
+          <h4>Leather Cream &amp; UV Block</h4>
+          <p>Conditions automotive leather without darkening seats or leaving a tacky finish on perforations.</p>
+          <div class="product-meta">
+            <div class="price">$28 <small>/ 8oz</small></div>
+            <a href="#signup">Notify me &rarr;</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h2M11 14h2"/></svg></div>
+        <div class="product-body">
+          <div class="product-tag">Tool</div>
+          <h4>Pro Foam Cannon &amp; Lance</h4>
+          <p>1/4-inch quick-connect, brass-tipped foamer. Pairs with most consumer and commercial pressure washers.</p>
+          <div class="product-meta">
+            <div class="price">$89 <small>each</small></div>
+            <a href="#signup">Notify me &rarr;</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">From the bench</div>
+      <h2>Guides we'd actually share with a friend</h2>
+      <p>Short, opinionated, no upsell. New entries each month.</p>
+    </div>
+    <div class="categories">
+      <div class="cat">
+        <h3>Ceramic vs. wax: when each one actually wins</h3>
+        <p>Hint: it's not about durability — it's about prep time and what failure mode you can live with.</p>
+      </div>
+      <div class="cat">
+        <h3>Two-bucket vs. rinseless: a working detailer's take</h3>
+        <p>Rinseless isn't a shortcut. Here's when it produces fewer marring incidents than a hose-and-bucket wash.</p>
+      </div>
+      <div class="cat">
+        <h3>Buying microfiber without getting ripped off</h3>
+        <p>GSM, blend ratios, edge construction. The three numbers that matter and the marketing terms that don't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="signup" class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Get early access &amp; pro pricing</h2>
+      <p>Catalog launch is rolling out in waves. Drop your email for first-batch access, pro discount codes for verified shops, and the occasional guide. No noise, no resold lists.</p>
+    </div>
+    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — you\'re in.'; this.querySelector('button').disabled=true;">
+      <label for="email">Email address</label>
+      <input id="email" type="email" placeholder="you@example.com" required autocomplete="email">
+      <label for="role" style="margin-top:0.25rem;">I'm a&hellip;</label>
+      <input id="role" type="text" placeholder="Mobile detailer / shop / enthusiast" autocomplete="off">
+      <button type="submit">Join the list</button>
+      <div class="signup-note">We'll never sell your address. Unsubscribe in one click.</div>
+    </form>
+  </div>
+</section>
+
 <footer>
-<p>&copy; 2026 Smart Auto Care Products &middot; <a href="https://smartautocareproducts.com">smartautocareproducts.com</a></p>
+  <div class="foot">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Smart Auto Care Products">
+      <p>Detailing supplies curated by working mobile auto-body professionals.</p>
+    </div>
+    <div>
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#categories">Ceramic Coatings</a></li>
+        <li><a href="#categories">Polishes</a></li>
+        <li><a href="#categories">Interior Care</a></li>
+        <li><a href="#categories">Tools</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#guides">Guides</a></li>
+        <li><a href="#signup">Pro Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:hello@smartautocareproducts.com">hello@smartautocareproducts.com</a></li>
+        <li><a href="#signup">Wholesale inquiries</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>&copy; 2026 Smart Auto Care Products. All rights reserved.</div>
+    <div><a href="https://smartautocareproducts.com">smartautocareproducts.com</a></div>
+  </div>
 </footer>
+
 </body>
 </html>
