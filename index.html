@@ -219,10 +219,71 @@ section { padding: 5.5rem 0; }
   color: #fff;
 }
 .cmd-bar .row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; }
-.cmd-brand { display: flex; align-items: center; text-decoration: none; color: #fff; }
-.cmd-brand img { height: 54px; width: auto; display: block; }
+/* Brand wordmark — recreated in CSS to keep crisp at any size.
+   Same structure used in header and footer with size variants. */
+.cmd-brand,
+.foot-brand-mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-family: var(--display);
+  line-height: 1;
+  gap: 0.45em;
+}
+.bm-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+}
+.bm-line::before,
+.bm-line::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--accent-bright);
+}
+.bm-line--top::before, .bm-line--top::after { width: 18px; }
+.bm-line--bot::before, .bm-line--bot::after { width: 28px; }
+.bm-word {
+  display: inline-flex;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.bm-auto { color: #fff; }
+.bm-care { color: var(--accent-bright); }
+.bm-tag {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+}
+
+/* Header sizing */
+.cmd-brand .bm-line--top { font-size: 0.6rem; }
+.cmd-brand .bm-line--bot { font-size: 0.55rem; }
+.cmd-brand .bm-word { font-size: 1.55rem; }
+
+/* Footer sizing */
+.foot-brand-mark { margin-bottom: 1.1rem; }
+.foot-brand-mark .bm-line--top { font-size: 0.72rem; }
+.foot-brand-mark .bm-line--bot { font-size: 0.64rem; }
+.foot-brand-mark .bm-word { font-size: 2.15rem; }
+.foot-brand-mark .bm-tag { font-size: 0.66rem; margin-top: 0.6em; }
+
 @media (max-width: 540px) {
-  .cmd-brand img { height: 40px; }
+  .cmd-brand .bm-word { font-size: 1.2rem; }
+  .cmd-brand .bm-line--top { font-size: 0.5rem; }
+  .cmd-brand .bm-line--bot { font-size: 0.45rem; }
 }
 .cmd-nav { display: flex; gap: 1.4rem; list-style: none; margin-left: 2rem; }
 .cmd-nav a {
@@ -902,7 +963,6 @@ footer {
 }
 @media (max-width: 1000px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
-.foot-brand img { height: 60px; width: auto; display: block; margin-bottom: 1rem; }
 .foot-brand p { font-size: 0.9rem; max-width: 300px; line-height: 1.55; }
 .foot-brand .ctas { display: flex; gap: 0.55rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .foot h5 {
@@ -942,7 +1002,9 @@ footer {
   <div class="wrap">
     <div class="row">
       <a href="#" class="cmd-brand" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
-        <img src="assets/logo.png" alt="Smart AutoCare Products — Cleaner. Protect. Perform.">
+        <span class="bm-line bm-line--top">Smart</span>
+        <span class="bm-word"><span class="bm-auto">Auto</span><span class="bm-care">Care</span></span>
+        <span class="bm-line bm-line--bot">Products</span>
       </a>
       <nav>
         <ul class="cmd-nav">
@@ -1632,7 +1694,12 @@ footer {
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/logo.png" alt="Smart AutoCare Products">
+        <a href="#" class="foot-brand-mark" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
+          <span class="bm-line bm-line--top">Smart</span>
+          <span class="bm-word"><span class="bm-auto">Auto</span><span class="bm-care">Care</span></span>
+          <span class="bm-line bm-line--bot">Products</span>
+          <span class="bm-tag">Cleaner · Protect · Perform</span>
+        </a>
         <p>The Detailer's Supply Counter. Field-tested auto care products for car owners, mobile detailers, body shops, and resellers.</p>
         <div class="ctas">
           <a href="#bulk" class="btn btn-primary btn-sm">Send Supply List</a>
