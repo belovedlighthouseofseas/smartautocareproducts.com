@@ -441,15 +441,30 @@ section { padding: 5.5rem 0; }
 @media (max-width: 900px) { .lanes { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .lanes { grid-template-columns: 1fr; } }
 .lane {
-  padding: 1.75rem;
+  padding: 0;
   border-right: 1px solid var(--line-dark);
   border-bottom: 1px solid var(--line-dark);
   background: var(--soft);
   position: relative;
   transition: background 0.15s;
   display: flex; flex-direction: column;
+  overflow: hidden;
 }
 .lane:hover { background: var(--steel); }
+.lane-img {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-dark);
+  background: var(--ink);
+}
+.lane-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.6s ease, opacity 0.3s;
+  opacity: 0.9;
+}
+.lane:hover .lane-img img { transform: scale(1.04); opacity: 1; }
+.lane-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
 .lanes .lane:nth-child(3n) { border-right: 0; }
 .lanes .lane:nth-last-child(-n+3) { border-bottom: 0; }
 @media (max-width: 900px) {
@@ -685,6 +700,16 @@ section { padding: 5.5rem 0; }
 }
 @media (max-width: 900px) { .bulk-grid { grid-template-columns: 1fr; } }
 .bulk-side h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+.bulk-side-img {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-dark);
+  margin-bottom: 1.75rem;
+  background: var(--ink);
+  max-width: 420px;
+}
+.bulk-side-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bulk-side .checks { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
 .bulk-side .checks li {
   display: grid; grid-template-columns: 24px 1fr; gap: 0.8rem;
@@ -1096,98 +1121,116 @@ footer {
     <div class="lanes">
       <!-- LANE 01 -->
       <article class="lane">
-        <div class="lane-num">LANE 01</div>
-        <h3>Protection</h3>
-        <p class="lane-purpose">Long-lasting hydrophobic protection for paint, glass, wheels, and trim.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          9H ceramic kits · sealants · spray protectants · trim restorers
+        <div class="lane-img"><img src="assets/lane-protection.png" alt="Hydrophobic water beading on a freshly ceramic-coated dark hood"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 01</div>
+          <h3>Protection</h3>
+          <p class="lane-purpose">Long-lasting hydrophobic protection for paint, glass, wheels, and trim.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            9H ceramic kits · sealants · spray protectants · trim restorers
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Mobile detailers · Owners · Shops</div>
+            <div><b>Skill</b> Beginner → Pro</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Mobile detailers · Owners · Shops</div>
-          <div><b>Skill</b> Beginner → Pro</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
 
       <!-- LANE 02 -->
       <article class="lane">
-        <div class="lane-num">LANE 02</div>
-        <h3>Correction</h3>
-        <p class="lane-purpose">Cutting and finishing chemistry for paint correction and clear-coat refinement.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          Cutting compounds · finishing polishes · pads · prep wipes
+        <div class="lane-img"><img src="assets/lane-correction.png" alt="Foam polishing pad working a dark paint surface"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 02</div>
+          <h3>Correction</h3>
+          <p class="lane-purpose">Cutting and finishing chemistry for paint correction and clear-coat refinement.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            Cutting compounds · finishing polishes · pads · prep wipes
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Body shops · Detail shops · Pros</div>
+            <div><b>Skill</b> Intermediate → Pro</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Body shops · Detail shops · Pros</div>
-          <div><b>Skill</b> Intermediate → Pro</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
 
       <!-- LANE 03 -->
       <article class="lane">
-        <div class="lane-num">LANE 03</div>
-        <h3>Interior</h3>
-        <p class="lane-purpose">Leather, plastic, fabric, odor, and UV care that won't damage delicate trims.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          Leather creams · fabric protectants · interior detailers · UV blocks
+        <div class="lane-img"><img src="assets/lane-interior.png" alt="Premium dark stitched leather seat detail"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 03</div>
+          <h3>Interior</h3>
+          <p class="lane-purpose">Leather, plastic, fabric, odor, and UV care that won't damage delicate trims.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            Leather creams · fabric protectants · interior detailers · UV blocks
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Owners · Mobile detailers · Shops</div>
+            <div><b>Skill</b> Beginner → Pro</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Owners · Mobile detailers · Shops</div>
-          <div><b>Skill</b> Beginner → Pro</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
 
       <!-- LANE 04 -->
       <article class="lane">
-        <div class="lane-num">LANE 04</div>
-        <h3>Wash</h3>
-        <p class="lane-purpose">The contact-with-paint stage. Soaps, mitts, buckets, foam tools, and drying towels that don't mar.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          pH-neutral soaps · wash mitts · grit guards · drying towels
+        <div class="lane-img"><img src="assets/lane-wash.png" alt="Cascading foam wash flowing down a dark luxury car panel"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 04</div>
+          <h3>Wash</h3>
+          <p class="lane-purpose">The contact-with-paint stage. Soaps, mitts, buckets, foam tools, and drying towels that don't mar.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            pH-neutral soaps · wash mitts · grit guards · drying towels
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Everyone — entry point</div>
+            <div><b>Skill</b> Beginner → Pro</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Everyone — entry point</div>
-          <div><b>Skill</b> Beginner → Pro</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
 
       <!-- LANE 05 -->
       <article class="lane">
-        <div class="lane-num">LANE 05</div>
-        <h3>Tools</h3>
-        <p class="lane-purpose">The metal and plastic between your hand and the paint. Sprayers, foam cannons, brushes, applicators.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          Foam cannons &amp; lances · pump sprayers · detailing brushes · applicators
+        <div class="lane-img"><img src="assets/lane-tools.png" alt="Aerial flatlay of detailing tools arranged in a precision grid"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 05</div>
+          <h3>Tools</h3>
+          <p class="lane-purpose">The metal and plastic between your hand and the paint. Sprayers, foam cannons, brushes, applicators.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            Foam cannons &amp; lances · pump sprayers · detailing brushes · applicators
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Mobile detailers · Shops · Resellers</div>
+            <div><b>Skill</b> Beginner → Pro</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Mobile detailers · Shops · Resellers</div>
-          <div><b>Skill</b> Beginner → Pro</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
 
       <!-- LANE 06 -->
       <article class="lane">
-        <div class="lane-num">LANE 06</div>
-        <h3>Bulk Restock</h3>
-        <p class="lane-purpose">The unsexy stuff that keeps a job moving. Microfiber packs, bottles, tape, towels, shop supplies.</p>
-        <div class="lane-stocked">
-          <b>Stocked</b>
-          Microfiber packs · spray bottles · masking tape · shop towels · gloves
+        <div class="lane-img"><img src="assets/lane-bulk.png" alt="Organized industrial storage shelving with microfiber towels and shop supplies under teal LED lighting"></div>
+        <div class="lane-body">
+          <div class="lane-num">LANE 06</div>
+          <h3>Bulk Restock</h3>
+          <p class="lane-purpose">The unsexy stuff that keeps a job moving. Microfiber packs, bottles, tape, towels, shop supplies.</p>
+          <div class="lane-stocked">
+            <b>Stocked</b>
+            Microfiber packs · spray bottles · masking tape · shop towels · gloves
+          </div>
+          <div class="lane-meta">
+            <div><b>For</b> Shops · Mobile detailers · Resellers</div>
+            <div><b>Skill</b> Buy in volume</div>
+          </div>
+          <a href="#bulk" class="lane-cta">Request This Lane</a>
         </div>
-        <div class="lane-meta">
-          <div><b>For</b> Shops · Mobile detailers · Resellers</div>
-          <div><b>Skill</b> Buy in volume</div>
-        </div>
-        <a href="#bulk" class="lane-cta">Request This Lane</a>
       </article>
     </div>
   </div>
@@ -1425,6 +1468,7 @@ footer {
   <div class="wrap">
     <div class="bulk-grid">
       <div class="bulk-side">
+        <div class="bulk-side-img"><img src="assets/bulk-counter-side.png" alt="Mobile detailer's organized cargo van interior with detailing supplies under teal LED lighting"></div>
         <span class="eyebrow">Bulk Supply Counter</span>
         <h2 class="h2" style="margin-top: 0.5rem;">Send us your supply list.</h2>
         <p class="lead">Need microfiber, polish, ceramic, bottles, tools, or recurring shop supplies? Drop your list below and we'll quote it — usually within 24–48 hours.</p>
