@@ -7,7 +7,8 @@
 <meta name="description" content="Auto care products that earn shelf space. Ceramic, polish, microfiber, interior care, wash tools, and bulk restock for car owners, mobile detailers, body shops, and resellers. Send us your supply list and we'll quote it.">
 <meta name="keywords" content="auto care products, detailing supplies, ceramic coating, cutting compound, microfiber towels, foam cannon, bulk detailing supplies, mobile detailer kit, body shop restock, reseller detailing bundles">
 <link rel="canonical" href="https://smartautocareproducts.com/">
-<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Smart AutoCare Products — The Detailer's Supply Counter">
@@ -332,6 +333,21 @@ section { padding: 5.5rem 0; }
   background:
     linear-gradient(95deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%),
     linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%);
+}
+.hero-mark {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  z-index: 2;
+  opacity: 0.88;
+  pointer-events: none;
+}
+.hero-mark img { height: 76px; width: auto; display: block; }
+@media (max-width: 820px) {
+  .hero-mark img { height: 56px; }
+}
+@media (max-width: 540px) {
+  .hero-mark { display: none; }
 }
 .hero-grid {
   position: relative; z-index: 1;
@@ -774,15 +790,18 @@ section { padding: 5.5rem 0; }
 }
 .intake-success {
   display: none;
-  background: rgba(20,163,168,0.08);
+  background: var(--ink);
   border: 1px solid var(--accent);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   font-size: 0.95rem;
   margin-top: 1rem;
-  color: var(--soft);
+  color: #fff;
+  text-align: center;
 }
 .intake-success.show { display: block; }
+.success-mark { height: 70px; width: auto; margin: 0 auto 1rem; display: block; }
+.intake-success strong { color: var(--accent-bright); display: block; margin-bottom: 0.25rem; font-family: var(--display); font-size: 1.05rem; letter-spacing: 0.01em; }
 
 /* ============================================================
    CATALOG WAVES
@@ -1029,7 +1048,8 @@ footer {
      SECTION 02 — HERO
      ============================================================ -->
 <section class="hero" aria-label="The Detailer's Supply Counter">
-  <div class="hero-bg" role="img" aria-label="Organized auto detailing supply counter with shelves of bottles, microfiber, and tools under warm amber lighting"></div>
+  <div class="hero-bg" role="img" aria-label="Precision auto detailing supply counter with shelves of bottles, microfiber, and tools under cool teal LED lighting"></div>
+  <div class="hero-mark" aria-hidden="true"><img src="assets/logo.png" alt=""></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -1508,6 +1528,7 @@ footer {
         </div>
 
         <div class="intake-success" id="supplySuccess" role="status">
+          <img src="assets/logo.png" alt="Smart AutoCare Products" class="success-mark">
           <strong>Got it — your list is in.</strong><br>
           We'll reply with pricing and lead times within 24–48 hours.
         </div>
