@@ -146,7 +146,10 @@ button { font: inherit; cursor: pointer; }
 .mono { font-family: var(--mono); }
 
 /* Section utilities */
-section { padding: 5.5rem 0; }
+section { padding: 6rem 0; }
+@media (max-width: 720px) {
+  section { padding: 4rem 0; }
+}
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -196,8 +199,15 @@ section { padding: 5.5rem 0; }
   white-space: nowrap;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(20,163,168,0.22);
+}
+.btn-primary:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 8px 24px rgba(20,163,168,0.36);
+}
 .btn-dark { background: var(--ink); color: #fff; }
 .btn-dark:hover { background: var(--soft); }
 .btn-ghost-dark { background: transparent; color: var(--ink); border-color: var(--ink); }
@@ -553,35 +563,56 @@ section { padding: 5.5rem 0; }
 .kit-tier::before { content: ''; display: inline-block; width: 14px; height: 2px; background: var(--accent); }
 .kit h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
 .kit-who { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
-.kit-includes {
+.kit-row {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--line);
+}
+.kit-row:first-of-type { border-top: 1px solid var(--line); margin-top: 1rem; }
+.kit-label {
+  display: inline-block;
   font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink);
-  margin-bottom: 0.5rem;
-  display: block;
+  background: #f4f4f3;
+  border: 1px solid var(--line);
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+  margin-bottom: 0.6rem;
 }
-.kit ul { list-style: none; margin-bottom: 1.2rem; }
-.kit ul li {
-  font-size: 0.88rem;
-  padding: 0.35rem 0;
-  border-bottom: 1px dashed var(--line);
+.kit-label--up {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(20,163,168,0.06);
+}
+.kit-list { list-style: none; margin-bottom: 0.25rem; }
+.kit-list li {
+  font-size: 0.86rem;
+  padding: 0.28rem 0;
   display: flex; gap: 0.5rem;
   color: var(--soft);
+  line-height: 1.4;
 }
-.kit ul li::before {
+.kit-list li::before {
   content: '✓';
   color: var(--accent);
   font-family: var(--mono);
   font-size: 0.85rem;
+  flex-shrink: 0;
 }
+.kit-list--up li::before { content: '↑'; }
 .kit-why {
   font-size: 0.85rem;
   color: var(--muted);
-  margin: 0 0 1.25rem;
+  margin: 1.1rem 0 1.25rem;
   font-style: italic;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
 }
+.kit-why b { color: var(--ink); font-weight: 600; font-style: normal; }
 .kit .btn { margin-top: auto; }
 
 /* ============================================================
@@ -677,6 +708,45 @@ section { padding: 5.5rem 0; }
   transition: background 0.15s, color 0.15s;
 }
 .field-cta:hover { background: var(--accent); color: #fff; }
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.howit { background: var(--concrete); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.steps {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  counter-reset: none;
+}
+@media (max-width: 1100px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+.step {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+.step-num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.45rem; letter-spacing: -0.005em; }
+.step p { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
 
 /* ============================================================
    BULK SUPPLY COUNTER
@@ -1055,9 +1125,9 @@ footer {
           <li><a href="#loadout">Loadout Wall</a></li>
           <li><a href="#kits">Build Your Kit</a></li>
           <li><a href="#field-cards">Field Cards</a></li>
+          <li><a href="#how">How It Works</a></li>
           <li><a href="#bulk">Bulk Supply</a></li>
           <li><a href="#guides">Guides</a></li>
-          <li><a href="#footer-contact">Contact</a></li>
         </ul>
       </nav>
       <div class="cmd-spacer"></div>
@@ -1081,26 +1151,26 @@ footer {
         <span class="hero-stamp"><span class="dot"></span> Field-Tested · Built For Real Jobs</span>
         <h1>The Detailer's Supply <em>Counter.</em></h1>
         <p class="hero-sub">
-          Smart AutoCare Products supplies ceramic coatings, compounds, microfiber, interior care, wash tools, and restock essentials for people who actually care about the finish — car owners, mobile detailers, body shops, and resellers.
+          Smart AutoCare Products helps buyers build practical car-care supply setups — washing, polishing, protecting, interior cleaning, mobile detailing, shop restocking, and resale bundles. One counter for everything that touches the finish.
         </p>
         <div class="hero-actions">
           <a href="#loadout" class="btn btn-primary">Shop the Loadout</a>
           <a href="#bulk" class="btn btn-ghost-light">Send Us Your Supply List</a>
         </div>
         <div class="hero-proof">
-          <span>Bulk Pricing Available</span>
-          <span>Local Buyer Friendly</span>
-          <span>Built for Detailers, Shops &amp; Resellers</span>
+          <span>Built for personal, mobile, shop &amp; resale buyers</span>
+          <span>Bundle &amp; bulk inquiries open</span>
+          <span>Catalog opening in waves</span>
         </div>
       </div>
       <aside class="hero-spec" aria-label="Counter status">
         <h4>Counter // Status</h4>
         <ul>
           <li><span>Loadout Lanes</span><span class="v">06 / 06 OPEN</span></li>
-          <li><span>Field-Tested SKUs</span><span class="v">~80</span></li>
-          <li><span>Bulk Quotes</span><span class="v">24–48 HR</span></li>
+          <li><span>Catalog</span><span class="v">EXPANDING</span></li>
+          <li><span>Bulk Quotes</span><span class="v">OPEN</span></li>
           <li><span>Reseller Bundles</span><span class="v">AVAILABLE</span></li>
-          <li><span>Catalog Wave</span><span class="v">v1 ROLLING</span></li>
+          <li><span>Starter Bundles</span><span class="v">AVAILABLE</span></li>
         </ul>
       </aside>
     </div>
@@ -1134,7 +1204,7 @@ footer {
             <div><b>For</b> Mobile detailers · Owners · Shops</div>
             <div><b>Skill</b> Beginner → Pro</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
 
@@ -1153,7 +1223,7 @@ footer {
             <div><b>For</b> Body shops · Detail shops · Pros</div>
             <div><b>Skill</b> Intermediate → Pro</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
 
@@ -1172,7 +1242,7 @@ footer {
             <div><b>For</b> Owners · Mobile detailers · Shops</div>
             <div><b>Skill</b> Beginner → Pro</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
 
@@ -1191,7 +1261,7 @@ footer {
             <div><b>For</b> Everyone — entry point</div>
             <div><b>Skill</b> Beginner → Pro</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
 
@@ -1210,7 +1280,7 @@ footer {
             <div><b>For</b> Mobile detailers · Shops · Resellers</div>
             <div><b>Skill</b> Beginner → Pro</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
 
@@ -1229,7 +1299,7 @@ footer {
             <div><b>For</b> Shops · Mobile detailers · Resellers</div>
             <div><b>Skill</b> Buy in volume</div>
           </div>
-          <a href="#bulk" class="lane-cta">Request This Lane</a>
+          <a href="#bulk" class="lane-cta">Add This Lane to My List</a>
         </div>
       </article>
     </div>
@@ -1252,69 +1322,111 @@ footer {
       <article class="kit">
         <span class="kit-tier">Tier · Personal</span>
         <h3>Weekend Wash Kit</h3>
-        <p class="kit-who">For car owners who want the wash, decontamination, and protection done right at home — without buying nine bottles of the same thing.</p>
-        <span class="kit-includes">Includes</span>
-        <ul>
-          <li>pH-neutral wash soap</li>
-          <li>Wash mitt &amp; grit guard</li>
-          <li>Drying towel set</li>
-          <li>Spray sealant or wax</li>
-          <li>Interior quick detailer</li>
-        </ul>
-        <p class="kit-why">Why it works: this is what you'd actually keep in the garage — no upsell.</p>
-        <a href="#bulk" class="btn btn-dark btn-block">Build This Kit</a>
+        <p class="kit-who">For car owners who want the wash, decon, and protection done right at home.</p>
+
+        <div class="kit-row">
+          <span class="kit-label">Starter</span>
+          <ul class="kit-list">
+            <li>pH-neutral wash soap</li>
+            <li>Wash mitt &amp; grit guard</li>
+            <li>Drying towel set</li>
+            <li>Spray sealant or wax</li>
+          </ul>
+        </div>
+        <div class="kit-row">
+          <span class="kit-label kit-label--up">Step Up</span>
+          <ul class="kit-list kit-list--up">
+            <li>Foam cannon attachment</li>
+            <li>Iron remover</li>
+            <li>Interior quick detailer</li>
+          </ul>
+        </div>
+
+        <p class="kit-why"><b>Best reason:</b> the whole at-home wash routine without ten bottles of the same thing.</p>
+        <a href="#bulk" class="btn btn-dark btn-block">Request This Kit</a>
       </article>
 
       <!-- KIT B -->
       <article class="kit">
         <span class="kit-tier">Tier · Mobile Pro</span>
         <h3>Mobile Detailer Kit</h3>
-        <p class="kit-who">For detailers running jobs out of a van, hatch, or truck. Fits your gear, covers a full appointment top-to-bottom.</p>
-        <span class="kit-includes">Includes</span>
-        <ul>
-          <li>Foam cannon &amp; lance</li>
-          <li>Iron remover &amp; clay alternative</li>
-          <li>One-step polish or compound</li>
-          <li>Ceramic spray sealant</li>
-          <li>Interior cleaner + leather care</li>
-          <li>Microfiber pack (multi-grade)</li>
-        </ul>
-        <p class="kit-why">Why it works: covers wash → decon → correct → protect → interior with one cart.</p>
-        <a href="#bulk" class="btn btn-dark btn-block">Build This Kit</a>
+        <p class="kit-who">For detailers running jobs out of a van, hatch, or truck. Fits your gear, covers a full appointment.</p>
+
+        <div class="kit-row">
+          <span class="kit-label">Starter</span>
+          <ul class="kit-list">
+            <li>Foam cannon &amp; lance</li>
+            <li>One-step polish or compound</li>
+            <li>Microfiber pack (multi-grade)</li>
+            <li>Interior cleaner + leather care</li>
+          </ul>
+        </div>
+        <div class="kit-row">
+          <span class="kit-label kit-label--up">Step Up</span>
+          <ul class="kit-list kit-list--up">
+            <li>Iron remover &amp; clay alt.</li>
+            <li>Ceramic spray sealant</li>
+            <li>Drying blower or air gun</li>
+          </ul>
+        </div>
+
+        <p class="kit-why"><b>Best reason:</b> covers wash → decon → correct → protect → interior in one cart.</p>
+        <a href="#bulk" class="btn btn-dark btn-block">Request This Kit</a>
       </article>
 
       <!-- KIT C -->
       <article class="kit">
         <span class="kit-tier">Tier · Shop Recurring</span>
         <h3>Shop Restock Kit</h3>
-        <p class="kit-who">For body shops, detail shops, and repair businesses needing recurring supply on a monthly or quarterly cadence.</p>
-        <span class="kit-includes">Includes</span>
-        <ul>
-          <li>Bulk microfiber (graded)</li>
-          <li>Compound &amp; polish in volume</li>
-          <li>Refill spray bottles &amp; triggers</li>
-          <li>Masking tape &amp; prep supplies</li>
-          <li>Shop towels &amp; nitrile gloves</li>
-        </ul>
-        <p class="kit-why">Why it works: predictable cadence, predictable cost, one supplier.</p>
-        <a href="#bulk" class="btn btn-dark btn-block">Build This Kit</a>
+        <p class="kit-who">For body shops, detail shops, and repair businesses on a monthly or quarterly restock cadence.</p>
+
+        <div class="kit-row">
+          <span class="kit-label">Starter</span>
+          <ul class="kit-list">
+            <li>Bulk microfiber (graded)</li>
+            <li>Compound &amp; polish in volume</li>
+            <li>Refill spray bottles &amp; triggers</li>
+            <li>Shop towels &amp; nitrile gloves</li>
+          </ul>
+        </div>
+        <div class="kit-row">
+          <span class="kit-label kit-label--up">Step Up</span>
+          <ul class="kit-list kit-list--up">
+            <li>Masking tape &amp; prep supplies</li>
+            <li>Foam refill canisters</li>
+            <li>Shop-grade IPA panel wipe</li>
+          </ul>
+        </div>
+
+        <p class="kit-why"><b>Best reason:</b> predictable cadence, predictable cost, one supplier.</p>
+        <a href="#bulk" class="btn btn-dark btn-block">Request This Kit</a>
       </article>
 
       <!-- KIT D -->
       <article class="kit">
         <span class="kit-tier">Tier · Reseller</span>
         <h3>Reseller / Swap Meet Kit</h3>
-        <p class="kit-who">For people stocking a booth, swap meet table, or reselling out of a van — bundles priced for resale margin.</p>
-        <span class="kit-includes">Includes</span>
-        <ul>
-          <li>Mixed-category sample bundle</li>
-          <li>Microfiber multi-packs</li>
-          <li>Spray bottle assortments</li>
-          <li>Interior &amp; exterior bestsellers</li>
-          <li>Ceramic / sealant entry SKUs</li>
-        </ul>
-        <p class="kit-why">Why it works: tested at booths — these are the SKUs that move.</p>
-        <a href="#bulk" class="btn btn-dark btn-block">Build This Kit</a>
+        <p class="kit-who">For people stocking a booth, swap meet table, or reselling out of a van.</p>
+
+        <div class="kit-row">
+          <span class="kit-label">Starter</span>
+          <ul class="kit-list">
+            <li>Mixed-category sample bundle</li>
+            <li>Microfiber multi-packs</li>
+            <li>Spray bottle assortments</li>
+          </ul>
+        </div>
+        <div class="kit-row">
+          <span class="kit-label kit-label--up">Step Up</span>
+          <ul class="kit-list kit-list--up">
+            <li>Interior &amp; exterior bestsellers</li>
+            <li>Ceramic / sealant entry SKUs</li>
+            <li>Booth display supplies</li>
+          </ul>
+        </div>
+
+        <p class="kit-why"><b>Best reason:</b> tested at booths — these are the SKUs that actually move.</p>
+        <a href="#bulk" class="btn btn-dark btn-block">Request This Kit</a>
       </article>
     </div>
   </div>
@@ -1348,7 +1460,7 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$129<small>Starting / Kit</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
@@ -1369,7 +1481,7 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$42<small>Starting / 16 oz</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
@@ -1390,7 +1502,7 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$58<small>Starting / 12 pk</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
@@ -1411,7 +1523,7 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$89<small>Each</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
@@ -1432,7 +1544,7 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$28<small>Starting / 8 oz</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
@@ -1453,11 +1565,52 @@ footer {
           </dl>
           <div class="field-foot">
             <div class="field-price">$18<small>Starting / 16 oz</small></div>
-            <a href="#bulk" class="field-cta">Add to List</a>
+            <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 05.5 — HOW IT WORKS
+     ============================================================ -->
+<section id="how" class="howit">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="h2">How the Supply Counter works.</h2>
+      <p class="lead">Five steps from "what do I need?" to product in your hands. No checkout maze. No forced wait.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">01</div>
+        <h4>Choose your lane</h4>
+        <p>Browse the six Loadout Wall categories — Protection, Correction, Interior, Wash, Tools, Bulk Restock.</p>
+      </li>
+      <li class="step">
+        <div class="step-num">02</div>
+        <h4>Build your kit</h4>
+        <p>Pick a buyer pathway: Weekend Wash, Mobile Detailer, Shop Restock, or Reseller / Swap Meet.</p>
+      </li>
+      <li class="step">
+        <div class="step-num">03</div>
+        <h4>Send your supply list</h4>
+        <p>Drop your products and quantities through the Bulk Supply Counter form below.</p>
+      </li>
+      <li class="step">
+        <div class="step-num">04</div>
+        <h4>Get pricing &amp; availability</h4>
+        <p>We come back with line-by-line pricing, lead times, and bundle options where they save money.</p>
+      </li>
+      <li class="step">
+        <div class="step-num">05</div>
+        <h4>Restock, resell, or use</h4>
+        <p>Receive your order. Use it on jobs, restock the shop shelf, or stage the booth.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -1471,7 +1624,7 @@ footer {
         <div class="bulk-side-img"><img src="assets/bulk-counter-side.png" alt="Mobile detailer's organized cargo van interior with detailing supplies under teal LED lighting"></div>
         <span class="eyebrow">Bulk Supply Counter</span>
         <h2 class="h2" style="margin-top: 0.5rem;">Send us your supply list.</h2>
-        <p class="lead">Need microfiber, polish, ceramic, bottles, tools, or recurring shop supplies? Drop your list below and we'll quote it — usually within 24–48 hours.</p>
+        <p class="lead">Paste what you need. We'll help match products, quantities, and bundle options. Quotes go out as quickly as we can review the list.</p>
         <ul class="checks">
           <li><span><b>Mobile detailers</b> — kit pricing on multi-category orders.</span></li>
           <li><span><b>Body &amp; detail shops</b> — set a recurring restock cadence.</span></li>
@@ -1568,13 +1721,13 @@ footer {
 
         <div class="intake-submit">
           <button type="submit" class="btn btn-primary btn-block">Request My Supply Quote</button>
-          <p class="intake-note">Quotes back within 24–48 hours. We won't sell or share your list.</p>
+          <p class="intake-note">We'll review the list and reply with pricing or next steps. We won't sell or share your information.</p>
         </div>
 
         <div class="intake-success" id="supplySuccess" role="status">
           <img src="assets/logo.png" alt="Smart AutoCare Products" class="success-mark">
-          <strong>Got it — your list is in.</strong><br>
-          We'll reply with pricing and lead times within 24–48 hours.
+          <strong>Your supply list was received.</strong><br>
+          We'll review the products and reply with pricing or next steps.
         </div>
       </form>
     </div>
@@ -1588,8 +1741,8 @@ footer {
   <div class="wrap">
     <div class="section-head center">
       <span class="eyebrow">Catalog Opening in Waves</span>
-      <h2 class="h2">Some products ship today. Others go out by quote.</h2>
-      <p class="lead">Inventory is scaling in batches. Pick your buyer track — we'll route you to what's available now, what's on quote, and what's in the next wave.</p>
+      <h2 class="h2">Catalog opens in waves — by design.</h2>
+      <p class="lead">We open the catalog in waves so pricing, lead times, and bundle options stay honest as we scale. Some categories are stocked, some are quote-based, and bundle inquiries are always open.</p>
     </div>
 
     <div class="waves-grid">
