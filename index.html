@@ -26,7 +26,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <!-- ============================================================
      JSON-LD STRUCTURED DATA
@@ -101,12 +101,12 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --ink: #0a0a0a;
-  --soft: #1f1f1f;
-  --steel: #2a2a2a;
-  --line-dark: #2f2f2f;
-  --line: #e5e3df;
-  --concrete: #f4f1ec;
+  --ink: #000000;
+  --soft: #0d0d0d;
+  --steel: #1a1a1a;
+  --line-dark: #262626;
+  --line: #e8e8e8;
+  --concrete: #ffffff;
   --bg: #ffffff;
   --muted: #6b6b6b;
   --muted-soft: #8a8a8a;
@@ -114,10 +114,18 @@
   --accent-dark: #0f7a82;
   --accent-bright: #22c8ce;
   --serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --display: 'Chakra Petch', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --container: 1240px;
-  --radius: 6px;
-  --radius-lg: 10px;
+  --radius: 2px;
+  --radius-lg: 4px;
+}
+
+/* Display headings — Chakra Petch carries the brand DNA */
+h1, h2, h3, h4, h5, h6, .h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.005em;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -139,6 +147,9 @@ button { font: inherit; cursor: pointer; }
 /* Section utilities */
 section { padding: 5.5rem 0; }
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   font-family: var(--mono);
   font-size: 0.78rem;
   font-weight: 500;
@@ -146,9 +157,17 @@ section { padding: 5.5rem 0; }
   text-transform: uppercase;
   color: var(--accent);
 }
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
 .h2 {
   font-size: clamp(1.85rem, 3.6vw, 2.6rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-top: 0.4rem;
@@ -200,13 +219,11 @@ section { padding: 5.5rem 0; }
   color: #fff;
 }
 .cmd-bar .row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; }
-.cmd-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: #fff; }
-.cmd-brand img { height: 36px; width: auto; background: #fff; padding: 4px; border-radius: 4px; }
-.cmd-brand-text {
-  display: flex; flex-direction: column; line-height: 1;
+.cmd-brand { display: flex; align-items: center; text-decoration: none; color: #fff; }
+.cmd-brand img { height: 54px; width: auto; display: block; }
+@media (max-width: 540px) {
+  .cmd-brand img { height: 40px; }
 }
-.cmd-brand-text .name { font-weight: 800; font-size: 0.95rem; letter-spacing: -0.01em; }
-.cmd-brand-text .tag { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; color: var(--accent-bright); margin-top: 4px; text-transform: uppercase; }
 .cmd-nav { display: flex; gap: 1.4rem; list-style: none; margin-left: 2rem; }
 .cmd-nav a {
   text-decoration: none;
@@ -277,7 +294,7 @@ section { padding: 5.5rem 0; }
 .hero-stamp .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-bright); box-shadow: 0 0 0 4px rgba(34,200,206,0.18); }
 .hero h1 {
   font-size: clamp(2.4rem, 5.6vw, 4rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 1.4rem 0 1.25rem;
@@ -885,7 +902,7 @@ footer {
 }
 @media (max-width: 1000px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
-.foot-brand img { height: 44px; width: auto; background: #fff; padding: 6px; border-radius: 6px; margin-bottom: 1rem; }
+.foot-brand img { height: 60px; width: auto; display: block; margin-bottom: 1rem; }
 .foot-brand p { font-size: 0.9rem; max-width: 300px; line-height: 1.55; }
 .foot-brand .ctas { display: flex; gap: 0.55rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .foot h5 {
@@ -924,12 +941,8 @@ footer {
 <header class="cmd-bar">
   <div class="wrap">
     <div class="row">
-      <a href="#" class="cmd-brand" aria-label="Smart AutoCare Products home">
-        <img src="assets/logo.png" alt="Smart AutoCare Products logo">
-        <span class="cmd-brand-text">
-          <span class="name">Smart AutoCare Products</span>
-          <span class="tag">Cleaner · Protect · Perform</span>
-        </span>
+      <a href="#" class="cmd-brand" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
+        <img src="assets/logo.png" alt="Smart AutoCare Products — Cleaner. Protect. Perform.">
       </a>
       <nav>
         <ul class="cmd-nav">
@@ -959,7 +972,7 @@ footer {
     <div class="hero-grid">
       <div>
         <span class="hero-stamp"><span class="dot"></span> Field-Tested · Built For Real Jobs</span>
-        <h1>The Detailer's <em>Supply Counter.</em></h1>
+        <h1>The Detailer's Supply <em>Counter.</em></h1>
         <p class="hero-sub">
           Smart AutoCare Products supplies ceramic coatings, compounds, microfiber, interior care, wash tools, and restock essentials for people who actually care about the finish — car owners, mobile detailers, body shops, and resellers.
         </p>
@@ -993,7 +1006,7 @@ footer {
 <section id="loadout" class="loadout">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">// The Loadout Wall</span>
+      <span class="eyebrow">The Loadout Wall</span>
       <h2 class="h2">Choose your lane. Build the right setup.</h2>
       <p class="lead">Six tightly-edited supply lanes. Each one is a category we stock end-to-end — pick the lane that matches the job in front of you.</p>
     </div>
@@ -1104,7 +1117,7 @@ footer {
 <section id="kits" class="kits">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">// Build Your Kit</span>
+      <span class="eyebrow">Build Your Kit</span>
       <h2 class="h2">Find the loadout that matches the work.</h2>
       <p class="lead">Four pathways — designed around how the buyer actually uses the product. Pick the closest fit and we'll quote it as a bundle.</p>
     </div>
@@ -1188,7 +1201,7 @@ footer {
 <section id="field-cards" class="field">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">// Featured Field Cards</span>
+      <span class="eyebrow">Featured Field Cards</span>
       <h2 class="h2">Each card tells you when to use it — not just what it costs.</h2>
       <p class="lead">A short sample of what's on the counter. Pricing shown is starting / personal-use. Add to your supply list for bulk and shop pricing.</p>
     </div>
@@ -1330,7 +1343,7 @@ footer {
   <div class="wrap">
     <div class="bulk-grid">
       <div class="bulk-side">
-        <span class="eyebrow">// Bulk Supply Counter</span>
+        <span class="eyebrow">Bulk Supply Counter</span>
         <h2 class="h2" style="margin-top: 0.5rem;">Send us your supply list.</h2>
         <p class="lead">Need microfiber, polish, ceramic, bottles, tools, or recurring shop supplies? Drop your list below and we'll quote it — usually within 24–48 hours.</p>
         <ul class="checks">
@@ -1447,7 +1460,7 @@ footer {
 <section class="waves">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">// Catalog Opening in Waves</span>
+      <span class="eyebrow">Catalog Opening in Waves</span>
       <h2 class="h2">Some products ship today. Others go out by quote.</h2>
       <p class="lead">Inventory is scaling in batches. Pick your buyer track — we'll route you to what's available now, what's on quote, and what's in the next wave.</p>
     </div>
@@ -1481,7 +1494,7 @@ footer {
 <section id="guides" class="guides">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">// Guides From the Bench</span>
+      <span class="eyebrow">Guides From the Bench</span>
       <h2 class="h2">Short, opinionated, no upsell.</h2>
       <p class="lead">Practical reads written from actual jobs. Coming soon — early signups get them first.</p>
     </div>
@@ -1533,7 +1546,7 @@ footer {
 <section class="family">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">// Part of the Smart Brand Family</span>
+      <span class="eyebrow">Part of the Smart Brand Family</span>
       <h2 class="h2">A connected automotive ecosystem.</h2>
       <p class="lead">Smart AutoCare Products supplies the chemistry and consumables. The rest of the family covers refinishing, detailing, cosmetic repair, and practical vehicle care.</p>
     </div>
@@ -1574,7 +1587,7 @@ footer {
 <section id="faq" class="faq">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">// FAQ</span>
+      <span class="eyebrow">FAQ</span>
       <h2 class="h2">Common questions from buyers.</h2>
       <p class="lead">Don't see yours? Send it through the supply form — we read every one.</p>
     </div>
