@@ -429,6 +429,17 @@
      ============================================================ -->
 <section id="field-cards" class="field">
   <div class="wrap">
+    <!--
+      FIELD CARDS — Stripe Payment Links go here when ready
+      ===================================================
+      Each card has a hidden "Buy Now" button. To enable it for any
+      product, set href to a Stripe Payment Link URL:
+        <a href="https://buy.stripe.com/abc123" class="buy-now-btn">Buy Now</a>
+      When href is empty, the button is hidden by CSS automatically.
+      The "Add to Cart" button works without any Stripe setup — it
+      collects items into the visitor's cart, which they send as a
+      supply list for quoting.
+    -->
     <div class="section-head">
       <span class="eyebrow">Featured Field Cards</span>
       <h2 class="h2">Each card tells you when to use it — not just what it costs.</h2>
@@ -452,7 +463,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="ceramic-9h-kit" data-name="9H Ceramic Coating Kit" data-category="Protection">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -473,7 +487,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="cutting-compound-stage1" data-name="Stage-1 Cutting Compound" data-category="Correction">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -494,7 +511,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="microfiber-restock-pack" data-name="Microfiber Restock Pack" data-category="Bulk Restock">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -515,7 +535,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="foam-cannon-pro" data-name="Pro Foam Cannon &amp; Lance" data-category="Tools">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -536,7 +559,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="leather-cream-uv" data-name="Leather Cream &amp; UV Block" data-category="Interior">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -557,7 +583,10 @@
           </dl>
           <div class="field-foot">
             <div class="field-price field-price--quote">Request Pricing</div>
-            <a href="#bulk" class="field-cta">Add to Supply List</a>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="add-to-cart-btn" data-sku="interior-detailer-spray" data-name="Interior Detailer Spray" data-category="Interior">Add to Cart</button>
+            <a href="" class="buy-now-btn">Buy Now</a>
           </div>
         </div>
       </article>
@@ -1021,5 +1050,6 @@
 })();
 </script>
 
+<script src="/assets/cart.js" defer></script>
 </body>
 </html>
