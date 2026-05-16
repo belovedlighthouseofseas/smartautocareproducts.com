@@ -695,6 +695,17 @@ section { padding: 6rem 0; }
   color: var(--ink);
 }
 .field-price small { display: block; font-weight: 400; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.field-price--quote {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.45rem 0.6rem;
+  border: 1px dashed var(--accent);
+  border-radius: 2px;
+}
 .field-cta {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -883,6 +894,7 @@ section { padding: 6rem 0; }
   color: var(--muted);
   text-align: center;
 }
+.intake-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .intake-success {
   display: none;
   background: var(--ink);
@@ -983,6 +995,16 @@ section { padding: 6rem 0; }
   color: var(--accent); text-decoration: none;
 }
 .guide-link:hover { color: var(--ink); }
+.guide-badge {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+}
 
 /* ============================================================
    SMART BRAND FAMILY
@@ -1005,8 +1027,6 @@ section { padding: 6rem 0; }
   border-right: 1px solid var(--line-dark);
   display: flex; flex-direction: column; gap: 0.4rem;
   background: var(--soft);
-  transition: background 0.15s;
-  text-decoration: none;
   color: inherit;
 }
 .family-cell:last-child { border-right: 0; }
@@ -1019,7 +1039,6 @@ section { padding: 6rem 0; }
   .family-cell { border-right: 0 !important; border-bottom: 1px solid var(--line-dark); }
   .family-cell:last-child { border-bottom: 0; }
 }
-.family-cell:hover { background: var(--steel); }
 .family-cell .role {
   font-family: var(--mono);
   font-size: 0.66rem;
@@ -1115,7 +1134,7 @@ footer {
 <header class="cmd-bar">
   <div class="wrap">
     <div class="row">
-      <a href="#" class="cmd-brand" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
+      <a href="/" class="cmd-brand" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
         <span class="bm-line bm-line--top">Smart</span>
         <span class="bm-word"><span class="bm-auto">Auto</span><span class="bm-care">Care</span></span>
         <span class="bm-line bm-line--bot">Products</span>
@@ -1191,13 +1210,13 @@ footer {
     <div class="lanes">
       <!-- LANE 01 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-protection.png" alt="Hydrophobic water beading on a freshly ceramic-coated dark hood"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-protection.png" alt="Hydrophobic water beading on a freshly ceramic-coated dark hood"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 01</div>
           <h3>Protection</h3>
           <p class="lane-purpose">Long-lasting hydrophobic protection for paint, glass, wheels, and trim.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             9H ceramic kits · sealants · spray protectants · trim restorers
           </div>
           <div class="lane-meta">
@@ -1210,13 +1229,13 @@ footer {
 
       <!-- LANE 02 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-correction.png" alt="Foam polishing pad working a dark paint surface"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-correction.png" alt="Foam polishing pad working a dark paint surface"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 02</div>
           <h3>Correction</h3>
           <p class="lane-purpose">Cutting and finishing chemistry for paint correction and clear-coat refinement.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             Cutting compounds · finishing polishes · pads · prep wipes
           </div>
           <div class="lane-meta">
@@ -1229,13 +1248,13 @@ footer {
 
       <!-- LANE 03 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-interior.png" alt="Premium dark stitched leather seat detail"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-interior.png" alt="Premium dark stitched leather seat detail"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 03</div>
           <h3>Interior</h3>
           <p class="lane-purpose">Leather, plastic, fabric, odor, and UV care that won't damage delicate trims.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             Leather creams · fabric protectants · interior detailers · UV blocks
           </div>
           <div class="lane-meta">
@@ -1248,13 +1267,13 @@ footer {
 
       <!-- LANE 04 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-wash.png" alt="Cascading foam wash flowing down a dark luxury car panel"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-wash.png" alt="Cascading foam wash flowing down a dark luxury car panel"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 04</div>
           <h3>Wash</h3>
           <p class="lane-purpose">The contact-with-paint stage. Soaps, mitts, buckets, foam tools, and drying towels that don't mar.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             pH-neutral soaps · wash mitts · grit guards · drying towels
           </div>
           <div class="lane-meta">
@@ -1267,13 +1286,13 @@ footer {
 
       <!-- LANE 05 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-tools.png" alt="Aerial flatlay of detailing tools arranged in a precision grid"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-tools.png" alt="Aerial flatlay of detailing tools arranged in a precision grid"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 05</div>
           <h3>Tools</h3>
           <p class="lane-purpose">The metal and plastic between your hand and the paint. Sprayers, foam cannons, brushes, applicators.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             Foam cannons &amp; lances · pump sprayers · detailing brushes · applicators
           </div>
           <div class="lane-meta">
@@ -1286,13 +1305,13 @@ footer {
 
       <!-- LANE 06 -->
       <article class="lane">
-        <div class="lane-img"><img src="assets/lane-bulk.png" alt="Organized industrial storage shelving with microfiber towels and shop supplies under teal LED lighting"></div>
+        <div class="lane-img"><img loading="lazy" src="assets/lane-bulk.png" alt="Organized industrial storage shelving with microfiber towels and shop supplies under teal LED lighting"></div>
         <div class="lane-body">
           <div class="lane-num">LANE 06</div>
           <h3>Bulk Restock</h3>
           <p class="lane-purpose">The unsexy stuff that keeps a job moving. Microfiber packs, bottles, tape, towels, shop supplies.</p>
           <div class="lane-stocked">
-            <b>Stocked</b>
+            <b>Lane covers</b>
             Microfiber packs · spray bottles · masking tape · shop towels · gloves
           </div>
           <div class="lane-meta">
@@ -1447,7 +1466,7 @@ footer {
       <!-- FIELD 01 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-ceramic-kit.png" alt="9H ceramic coating kit with dropper bottle, applicator block, and microfiber suedes">
+          <img loading="lazy" src="assets/product-ceramic-kit.png" alt="9H ceramic coating kit with dropper bottle, applicator block, and microfiber suedes">
           <span class="field-cat">Protection</span>
         </div>
         <div class="field-body">
@@ -1459,7 +1478,7 @@ footer {
             <dt>Shop Note</dt><dd>Apply panel-by-panel, level within 30–60 sec.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$129<small>Starting / Kit</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1468,7 +1487,7 @@ footer {
       <!-- FIELD 02 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-cutting-compound.png" alt="16oz cutting compound bottle with charcoal label">
+          <img loading="lazy" src="assets/product-cutting-compound.png" alt="16oz cutting compound bottle with charcoal label">
           <span class="field-cat">Correction</span>
         </div>
         <div class="field-body">
@@ -1480,7 +1499,7 @@ footer {
             <dt>Shop Note</dt><dd>Test panel first; finishes clean on soft paints.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$42<small>Starting / 16 oz</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1489,7 +1508,7 @@ footer {
       <!-- FIELD 03 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-microfiber-pack.png" alt="Stack of folded microfiber detailing towels in graded gray and white tones">
+          <img loading="lazy" src="assets/product-microfiber-pack.png" alt="Stack of folded microfiber detailing towels in graded gray and white tones">
           <span class="field-cat">Bulk Restock</span>
         </div>
         <div class="field-body">
@@ -1501,7 +1520,7 @@ footer {
             <dt>Shop Note</dt><dd>Wash separately on warm, no fabric softener.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$58<small>Starting / 12 pk</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1510,7 +1529,7 @@ footer {
       <!-- FIELD 04 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-foam-cannon.png" alt="Matte black foam cannon with brass quick-connect fitting">
+          <img loading="lazy" src="assets/product-foam-cannon.png" alt="Matte black foam cannon with brass quick-connect fitting">
           <span class="field-cat">Tools</span>
         </div>
         <div class="field-body">
@@ -1522,7 +1541,7 @@ footer {
             <dt>Shop Note</dt><dd>1/4-in. brass quick-connect, fits most consumer &amp; commercial PWs.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$89<small>Each</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1531,7 +1550,7 @@ footer {
       <!-- FIELD 05 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-leather-cream.png" alt="Small jar of leather conditioner cream with charcoal and amber label">
+          <img loading="lazy" src="assets/product-leather-cream.png" alt="Small jar of leather conditioner cream with charcoal and amber label">
           <span class="field-cat">Interior</span>
         </div>
         <div class="field-body">
@@ -1543,7 +1562,7 @@ footer {
             <dt>Shop Note</dt><dd>Won't darken seats or leave residue on perforations.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$28<small>Starting / 8 oz</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1552,7 +1571,7 @@ footer {
       <!-- FIELD 06 -->
       <article class="field-card">
         <div class="field-img">
-          <img src="assets/product-interior-spray.png" alt="16oz interior detailer spray bottle with matte black trigger sprayer">
+          <img loading="lazy" src="assets/product-interior-spray.png" alt="16oz interior detailer spray bottle with matte black trigger sprayer">
           <span class="field-cat">Interior</span>
         </div>
         <div class="field-body">
@@ -1564,7 +1583,7 @@ footer {
             <dt>Shop Note</dt><dd>Spray on the cloth, not the panel — avoids overspray on glass.</dd>
           </dl>
           <div class="field-foot">
-            <div class="field-price">$18<small>Starting / 16 oz</small></div>
+            <div class="field-price field-price--quote">Request Pricing</div>
             <a href="#bulk" class="field-cta">Add to Supply List</a>
           </div>
         </div>
@@ -1621,7 +1640,7 @@ footer {
   <div class="wrap">
     <div class="bulk-grid">
       <div class="bulk-side">
-        <div class="bulk-side-img"><img src="assets/bulk-counter-side.png" alt="Mobile detailer's organized cargo van interior with detailing supplies under teal LED lighting"></div>
+        <div class="bulk-side-img"><img loading="lazy" src="assets/bulk-counter-side.png" alt="Mobile detailer's organized cargo van interior with detailing supplies under teal LED lighting"></div>
         <span class="eyebrow">Bulk Supply Counter</span>
         <h2 class="h2" style="margin-top: 0.5rem;">Send us your supply list.</h2>
         <p class="lead">Paste what you need. We'll help match products, quantities, and bundle options. Quotes go out as quickly as we can review the list.</p>
@@ -1637,14 +1656,19 @@ footer {
       <!--
         BULK SUPPLY INTAKE FORM
         =====================================
-        To wire this to a real backend later:
-        1. Replace action="" with your endpoint, e.g.:
-             action="https://formspree.io/f/YOUR_FORM_ID"
-           or a Netlify Forms / Supabase / custom API URL.
-        2. Remove the onsubmit JS handler below to allow native POST.
-        3. The names on each field map cleanly to a JSON payload.
+        Default behavior: opens the user's email client with the
+        formatted supply list addressed to hello@smartautocareproducts.com
+        (handled by the JS at the bottom of this file). This gives you
+        a working intake immediately.
+
+        To upgrade to a real backend later:
+        1. Set action="https://formspree.io/f/YOUR_FORM_ID"
+           (or Netlify Forms / Supabase / custom API).
+        2. Once action is non-empty, the JS will skip the mailto
+           fallback and let the form POST natively.
+        3. The field names map cleanly to a JSON payload.
       -->
-      <form class="intake" id="supplyForm" action="" method="POST" novalidate>
+      <form class="intake" id="supplyForm" action="" method="POST" data-mailto="hello@smartautocareproducts.com" novalidate>
         <div class="intake-head">
           <span class="badge">Intake / 001</span>
           <h4>Request a Supply Quote</h4>
@@ -1721,7 +1745,7 @@ footer {
 
         <div class="intake-submit">
           <button type="submit" class="btn btn-primary btn-block">Request My Supply Quote</button>
-          <p class="intake-note">We'll review the list and reply with pricing or next steps. We won't sell or share your information.</p>
+          <p class="intake-note">We'll review the list and reply with pricing or next steps. We won't sell or share your information. <a href="/privacy.html">Privacy</a>.</p>
         </div>
 
         <div class="intake-success" id="supplySuccess" role="status">
@@ -1784,37 +1808,37 @@ footer {
         <div class="guide-num">GUIDE 01</div>
         <h4>Ceramic vs. Wax: When Each One Actually Wins</h4>
         <p>Hint: it's not about durability. It's about prep time and which failure mode you can live with.</p>
-        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
       <article class="guide">
         <div class="guide-num">GUIDE 02</div>
         <h4>Buying Microfiber Without Getting Ripped Off</h4>
         <p>GSM, blend ratios, edge construction. The three numbers that matter and the marketing terms that don't.</p>
-        <div class="guide-foot"><span class="guide-time">~ 5 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 5 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
       <article class="guide">
         <div class="guide-num">GUIDE 03</div>
         <h4>Cutting Compound vs. Finishing Polish</h4>
         <p>When to step up to compound, when to finish with polish, and when one bottle does both.</p>
-        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
       <article class="guide">
         <div class="guide-num">GUIDE 04</div>
         <h4>What a Mobile Detailer Should Keep on the Truck</h4>
         <p>The minimum loadout for a full appointment — what to carry, what to leave, what to refill weekly.</p>
-        <div class="guide-foot"><span class="guide-time">~ 6 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 6 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
       <article class="guide">
         <div class="guide-num">GUIDE 05</div>
         <h4>How to Build a Starter Detailing Kit</h4>
         <p>The five products that get you from "shiny car wash" to "actually properly detailed."</p>
-        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 4 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
       <article class="guide">
         <div class="guide-num">GUIDE 06</div>
         <h4>What to Buy in Bulk vs. What to Buy Small</h4>
         <p>Microfiber, soap, compound, ceramic — which categories actually save money in volume, and which ones go bad in your shelf.</p>
-        <div class="guide-foot"><span class="guide-time">~ 5 min read</span><a href="#bulk" class="guide-link">Notify Me</a></div>
+        <div class="guide-foot"><span class="guide-time">~ 5 min read</span><span class="guide-badge">Coming Soon</span></div>
       </article>
     </div>
   </div>
@@ -1832,31 +1856,31 @@ footer {
     </div>
 
     <div class="family-strip">
-      <a href="#" class="family-cell">
+      <div class="family-cell">
         <span class="role">Refinish</span>
         <span class="name">Smart Refinish</span>
         <span class="what">Paint &amp; refinish work</span>
-      </a>
-      <a href="#" class="family-cell">
+      </div>
+      <div class="family-cell">
         <span class="role">Detail</span>
         <span class="name">Smart Shine Detailing</span>
         <span class="what">Mobile detailing service</span>
-      </a>
-      <a href="#" class="family-cell">
+      </div>
+      <div class="family-cell">
         <span class="role">Repair</span>
         <span class="name">BumperFix</span>
         <span class="what">Cosmetic bumper repair</span>
-      </a>
-      <a href="#" class="family-cell">
+      </div>
+      <div class="family-cell">
         <span class="role">Paint</span>
         <span class="name">PaintFix</span>
         <span class="what">Spot paint correction</span>
-      </a>
-      <a href="#" class="family-cell">
+      </div>
+      <div class="family-cell">
         <span class="role">Lot</span>
         <span class="name">Smart Lot Electronics</span>
         <span class="what">Dealer lot electronics</span>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1912,7 +1936,7 @@ footer {
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#" class="foot-brand-mark" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
+        <a href="/" class="foot-brand-mark" aria-label="Smart AutoCare Products — Cleaner. Protect. Perform.">
           <span class="bm-line bm-line--top">Smart</span>
           <span class="bm-word"><span class="bm-auto">Auto</span><span class="bm-care">Care</span></span>
           <span class="bm-line bm-line--bot">Products</span>
@@ -1956,17 +1980,17 @@ footer {
       <div class="foot">
         <h5>Brand Family</h5>
         <ul>
-          <li><a href="#">Smart Refinish</a></li>
-          <li><a href="#">Smart Shine Detailing</a></li>
-          <li><a href="#">BumperFix</a></li>
-          <li><a href="#">PaintFix</a></li>
-          <li><a href="#">Smart Lot Electronics</a></li>
+          <li>Smart Refinish</li>
+          <li>Smart Shine Detailing</li>
+          <li>BumperFix</li>
+          <li>PaintFix</li>
+          <li>Smart Lot Electronics</li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
       <div>© 2026 Smart AutoCare Products · The Detailer's Supply Counter</div>
-      <div><a href="https://smartautocareproducts.com">smartautocareproducts.com</a> · <a href="mailto:hello@smartautocareproducts.com">hello@smartautocareproducts.com</a></div>
+      <div><a href="/privacy.html">Privacy</a> · <a href="mailto:hello@smartautocareproducts.com">hello@smartautocareproducts.com</a></div>
     </div>
   </div>
 </footer>
@@ -1984,9 +2008,39 @@ footer {
     if (form.getAttribute('action') && form.getAttribute('action').length > 0) return;
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    // Mailto fallback: assemble the form data into an email and open
+    // the user's email client. Replaces "form goes nowhere" with a
+    // real working intake until a backend is wired.
+    var data = new FormData(form);
+    var fields = [
+      ['name', 'Name'],
+      ['business', 'Business'],
+      ['email', 'Email'],
+      ['phone', 'Phone'],
+      ['buyer_type', 'Buyer type'],
+      ['quantity', 'Quantity / volume'],
+      ['contact_method', 'Preferred contact'],
+      ['notes', 'Supply list / Notes']
+    ];
+    var lines = [];
+    fields.forEach(function (pair) {
+      var v = data.get(pair[0]);
+      if (v) lines.push(pair[1] + ': ' + v);
+    });
+    var cats = data.getAll('categories');
+    if (cats.length) lines.push('Categories needed: ' + cats.join(', '));
+
+    var to = form.getAttribute('data-mailto') || 'hello@smartautocareproducts.com';
+    var subject = 'Supply List Inquiry — ' + (data.get('name') || 'New buyer');
+    var body = 'Supply list inquiry from smartautocareproducts.com\n\n' + lines.join('\n');
+    var href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    window.location.href = href;
+
     success.classList.add('show');
     var btn = form.querySelector('button[type="submit"]');
-    if (btn) { btn.textContent = 'List Received'; btn.disabled = true; }
+    if (btn) { btn.textContent = 'Opening Email…'; btn.disabled = true; }
     success.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 })();
